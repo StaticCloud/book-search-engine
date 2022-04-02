@@ -1,11 +1,11 @@
 // import gql
-import { gql } from 'apollo-server-express';
+const { gql } = require('apollo-server-express');
 
-// define every type of the data the user is expected to work with via query or mutation
+// define all types of data we will use in our application including what data they return
 const typeDefs = gql`
     type Auth {
         token: ID!
-        usr: User
+        user: User
     }
 
     type Book {
@@ -32,7 +32,7 @@ const typeDefs = gql`
     type Mutation {
         login: Auth
         addUser: Auth
-        saveBook(authors: [String!], desc: String!, title: String!, bookId: ID!, link: String!): User
+        saveBook(authors: [String!], description: String!, title: String!, bookId: ID!, image: String!, link: String!): User
         removeBook(bookId: ID!): User
     }
 `;
